@@ -4,7 +4,7 @@ from typing import ClassVar
 class AppException(Exception):
     """Base class for domain exceptions."""
 
-    code: ClassVar[str] = "app_error"
+    code: ClassVar[str] = "APP_ERROR"
     default_message: ClassVar[str] = "Application error."
 
     def __init__(self, message: str | None = None) -> None:
@@ -15,33 +15,33 @@ class AppException(Exception):
 class NotFoundError(AppException):
     """Raised when a requested resource does not exist."""
 
-    code = "not_found"
+    code = "NOT_FOUND"
     default_message = "Resource not found."
 
 
 class ConflictError(AppException):
     """Raised when a request conflicts with existing state."""
 
-    code = "conflict"
+    code = "CONFLICT"
     default_message = "Resource conflict."
 
 
 class UnauthorizedError(AppException):
     """Raised when authentication is missing or invalid."""
 
-    code = "unauthorized"
+    code = "UNAUTHORIZED"
     default_message = "Unauthorized."
 
 
 class ForbiddenError(AppException):
     """Raised when the authenticated principal cannot perform an action."""
 
-    code = "forbidden"
+    code = "FORBIDDEN"
     default_message = "Forbidden."
 
 
 class ValidationError(AppException):
     """Raised when domain validation fails."""
 
-    code = "validation_error"
+    code = "VALIDATION_ERROR"
     default_message = "Validation error."

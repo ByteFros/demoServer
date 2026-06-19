@@ -113,3 +113,22 @@ class TokenResponse(BaseModel):
     refresh_token: str
     token_type: Literal["bearer"] = "bearer"
     expires_in: int
+
+
+class LogoutAllResponse(BaseModel):
+    """Response returned after revoking all refresh tokens."""
+
+    revoked_count: int
+
+
+class ErrorDetail(BaseModel):
+    """Stable API error detail."""
+
+    code: str
+    message: str
+
+
+class ErrorResponse(BaseModel):
+    """Stable API error envelope."""
+
+    error: ErrorDetail
